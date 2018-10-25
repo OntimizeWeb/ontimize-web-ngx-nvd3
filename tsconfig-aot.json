@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": [
+      "dom", "es6"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "sourceMap": false,
+    "outDir": "build"
+  },
+  "files": [
+    "lib/ng2-nvd3.ts",
+    "test/ng2-nvd3.spec.ts",
+    "test/vendor.ts",
+    "test/spec.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "strictMetadataEmit": true
+  }
+}
