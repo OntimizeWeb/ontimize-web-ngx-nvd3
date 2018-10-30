@@ -1,4 +1,10 @@
 import { OnChanges, ElementRef, SimpleChanges } from '@angular/core';
+import '../../custom_models/gaugeChart';
+import '../../custom_models/gauge';
+import '../../custom_models/packedBubbleChart';
+import '../../custom_models/packedBubble';
+import '../../custom_models/radarChart';
+import '../../custom_models/radar';
 export declare class nvD3 implements OnChanges {
     private elementRef;
     options: any;

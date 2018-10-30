@@ -1,6 +1,12 @@
 import { NgModule, Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import * as nv from 'nvd3';
+import '../../custom_models/gaugeChart';
+import '../../custom_models/gauge';
+import '../../custom_models/packedBubbleChart';
+import '../../custom_models/packedBubble';
+import '../../custom_models/radarChart';
+import '../../custom_models/radar';
 var nvD3 = (function () {
     function nvD3(elementRef) {
         this.elementRef = elementRef;
