@@ -1,12 +1,12 @@
 import {NgModule, Component, OnChanges, ElementRef, Input, ViewEncapsulation, SimpleChanges} from '@angular/core';
 import * as d3 from 'd3';
 import * as nv from 'nvd3';
-import 'custom_models/gaugeChart';
-import 'custom_models/gauge';
-import 'custom_models/packedBubbleChart';
-import 'custom_models/packedBubble';
-import 'custom_models/radarChart';
-import 'custom_models/radar';
+import '../../custom_models/gaugeChart';
+import '../../custom_models/gauge';
+import '../../custom_models/packedBubbleChart';
+import '../../custom_models/packedBubble';
+import '../../custom_models/radarChart';
+import '../../custom_models/radar';
 
 @Component({
     selector: 'nvd3',
