@@ -1,8 +1,10 @@
-# ng2-nvd3
+# ontimize-web-ngx-nvd3
+Angular component for nvd3. Forked from daominhsangvn/ng2-nvd3@1.1.3
+
 [![Build Status](https://travis-ci.org/krispo/ng2-nvd3.svg?branch=master)](https://travis-ci.org/krispo/ng2-nvd3)
 [![NPM Version](http://img.shields.io/npm/v/ng2-nvd3.svg?style=flat)](https://www.npmjs.org/package/ng2-nvd3)
 
-Angular2 component for nvd3. It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
+Angular component for nvd3. It has similar technique as [angular-nvd3](http://krispo.github.io/angular-nvd3) for angular 1, but designed for angular 2 and without extra features (like extended mode) you won't need.
 
 ## Demos
 
@@ -14,16 +16,16 @@ Online demos:
 ## Install
 
     npm install ng2-nvd3 d3@^3 nvd3
-    
+
 it requires `angular2`, `d3` and `nvd3` as dependencies. Tested with the current `@angular` version `^2.2.1`.
-    
+
 ## Basic usage
 
 ### Simple bar chart
 Note: `d3` and `nvd3` should be also included in your project bundle.
 
-Simple discrete bar chart: 
-    
+Simple discrete bar chart:
+
 ```js
 app.component.ts
 
@@ -127,7 +129,7 @@ import {NvD3Module} from 'ng2-nvd3';
   bootstrap:    [ Main ]
 })
 export class AppModule { }
-```    
+```
 
 ### Usage directive `api`
 
@@ -157,34 +159,18 @@ export class Main {
     // this.nvD3 - directive instance
     // for example, to update the chart
     this.nvD3.update();
-  } 
+  }
 }
 ```
 
 ## Tests
 
     npm test
-    
+
 ## Change Log
 
-#### 1.1.4 (master)
-* Angular2 - v2.2.1
-
-#### 1.1.3 (master)
-* Angular2 - v2.0.0-rc4 
-
-#### 1.1.2
-* Angular2 - v2.0.0-rc3 
-
-#### 1.1.1
-* Angular2 - v2.0.0-rc2 
-
-#### 1.1.0
-* Angular2 - v2.0.0-rc1 
-
-#### 1.0.7
-* Angular2 - v2.0.0-beta.3 
-    
+#### 3.0.0 (master)
+* Angular5
 
 ## License
 MIT
