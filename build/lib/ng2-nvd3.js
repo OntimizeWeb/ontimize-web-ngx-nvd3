@@ -204,42 +204,41 @@ var nvD3 = (function () {
             this.chart.resizeHandler.clear();
         this.chart = null;
     };
+    nvD3.decorators = [
+        { type: Component, args: [{
+                    selector: 'nvd3',
+                    template: "",
+                    encapsulation: ViewEncapsulation.None,
+                    styles: [
+                        "\n          nvd3 {\n            display: block;\n            width: 100%;\n          }\n        "
+                    ],
+                    exportAs: 'nvd3'
+                },] },
+    ];
+    nvD3.ctorParameters = function () { return [
+        { type: ElementRef, },
+    ]; };
+    nvD3.propDecorators = {
+        "options": [{ type: Input },],
+        "data": [{ type: Input },],
+    };
     return nvD3;
 }());
 export { nvD3 };
-nvD3.decorators = [
-    { type: Component, args: [{
-                selector: 'nvd3',
-                template: "",
-                encapsulation: ViewEncapsulation.None,
-                styles: [
-                    "\n          nvd3 {\n            display: block;\n            width: 100%;\n          }\n        "
-                ],
-                exportAs: 'nvd3'
-            },] },
-];
-nvD3.ctorParameters = function () { return [
-    { type: ElementRef, },
-]; };
-nvD3.propDecorators = {
-    'options': [{ type: Input },],
-    'data': [{ type: Input },],
-};
 var NvD3Module = (function () {
     function NvD3Module() {
     }
+    NvD3Module.decorators = [
+        { type: NgModule, args: [{
+                    declarations: [
+                        nvD3
+                    ],
+                    imports: [],
+                    exports: [
+                        nvD3
+                    ],
+                },] },
+    ];
     return NvD3Module;
 }());
 export { NvD3Module };
-NvD3Module.decorators = [
-    { type: NgModule, args: [{
-                declarations: [
-                    nvD3
-                ],
-                imports: [],
-                exports: [
-                    nvD3
-                ],
-            },] },
-];
-NvD3Module.ctorParameters = function () { return []; };
