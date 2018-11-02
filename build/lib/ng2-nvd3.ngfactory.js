@@ -1,6 +1,6 @@
 import * as i0 from "@angular/core";
 import * as i1 from "./ng2-nvd3";
-var NvD3ModuleNgFactory = i0.ɵcmf(i1.NvD3Module, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(512, i1.NvD3Module, i1.NvD3Module, [])]); });
+var NvD3ModuleNgFactory = i0.ɵcmf(i1.NvD3Module, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, []], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(1073742336, i1.NvD3Module, i1.NvD3Module, [])]); });
 export { NvD3ModuleNgFactory as NvD3ModuleNgFactory };
 var styles_nvD3 = ["\n          nvd3 {\n            display: block;\n            width: 100%;\n          }\n        "];
 var RenderType_nvD3 = i0.ɵcrt({ encapsulation: 2, styles: styles_nvD3, data: {} });

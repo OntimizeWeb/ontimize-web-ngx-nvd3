@@ -216,11 +216,11 @@ var nvD3 = (function () {
                 },] },
     ];
     nvD3.ctorParameters = function () { return [
-        { type: ElementRef, },
+        { type: ElementRef }
     ]; };
     nvD3.propDecorators = {
-        "options": [{ type: Input },],
-        "data": [{ type: Input },],
+        options: [{ type: Input }],
+        data: [{ type: Input }]
     };
     return nvD3;
 }());
