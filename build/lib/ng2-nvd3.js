@@ -1,3 +1,12 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 import { NgModule, Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import * as nv from 'nvd3';
@@ -12,6 +21,7 @@ var nvD3 = (function () {
         this.elementRef = elementRef;
         this.el = elementRef.nativeElement;
     }
+    nvD3_1 = nvD3;
     nvD3.prototype.ngOnChanges = function (changes) {
         var self = this;
         this.updateWithOptions(this.options);
@@ -42,7 +52,7 @@ var nvD3 = (function () {
             ].indexOf(key) >= 0) {
             }
             else if (key === 'dispatch')
-                nvD3.configureEvents(this.chart[key], options.chart[key]);
+                nvD3_1.configureEvents(this.chart[key], options.chart[key]);
             else if ([
                 'bars',
                 'bars1',
@@ -144,7 +154,7 @@ var nvD3 = (function () {
                 if (key[0] === '_') {
                 }
                 else if (key === 'dispatch')
-                    nvD3.configureEvents(value, options[key]);
+                    nvD3_1.configureEvents(value, options[key]);
                 else if (key === 'tooltip')
                     this.configure(chart[key], options[key], chartType);
                 else if (key === 'contentGenerator') {
@@ -204,41 +214,44 @@ var nvD3 = (function () {
             this.chart.resizeHandler.clear();
         this.chart = null;
     };
-    nvD3.decorators = [
-        { type: Component, args: [{
-                    selector: 'nvd3',
-                    template: "",
-                    encapsulation: ViewEncapsulation.None,
-                    styles: [
-                        "\n          nvd3 {\n            display: block;\n            width: 100%;\n          }\n        "
-                    ],
-                    exportAs: 'nvd3'
-                },] },
-    ];
-    nvD3.ctorParameters = function () { return [
-        { type: ElementRef }
-    ]; };
-    nvD3.propDecorators = {
-        options: [{ type: Input }],
-        data: [{ type: Input }]
-    };
+    var nvD3_1;
+    __decorate([
+        Input(),
+        __metadata("design:type", Object)
+    ], nvD3.prototype, "options", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Object)
+    ], nvD3.prototype, "data", void 0);
+    nvD3 = nvD3_1 = __decorate([
+        Component({
+            selector: 'nvd3',
+            template: "",
+            encapsulation: ViewEncapsulation.None,
+            styles: [
+                "\n          nvd3 {\n            display: block;\n            width: 100%;\n          }\n        "
+            ],
+            exportAs: 'nvd3'
+        }),
+        __metadata("design:paramtypes", [ElementRef])
+    ], nvD3);
     return nvD3;
 }());
 export { nvD3 };
 var NvD3Module = (function () {
     function NvD3Module() {
     }
-    NvD3Module.decorators = [
-        { type: NgModule, args: [{
-                    declarations: [
-                        nvD3
-                    ],
-                    imports: [],
-                    exports: [
-                        nvD3
-                    ],
-                },] },
-    ];
+    NvD3Module = __decorate([
+        NgModule({
+            declarations: [
+                nvD3
+            ],
+            imports: [],
+            exports: [
+                nvD3
+            ],
+        })
+    ], NvD3Module);
     return NvD3Module;
 }());
 export { NvD3Module };
