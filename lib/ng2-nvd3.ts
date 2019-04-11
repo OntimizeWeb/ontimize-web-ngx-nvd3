@@ -1,4 +1,4 @@
-import {NgModule, Component, OnChanges, ElementRef, Input, ViewEncapsulation, SimpleChanges} from '@angular/core';
+import {NgModule, Component, OnChanges, ElementRef, Input, ViewEncapsulation, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import * as d3 from 'd3';
 import * as nv from 'nvd3';
 import '../../custom_models/gaugeChart';
@@ -7,6 +7,8 @@ import '../../custom_models/packedBubbleChart';
 import '../../custom_models/packedBubble';
 import '../../custom_models/radarChart';
 import '../../custom_models/radar';
+
+import 'hammerjs';
 
 @Component({
     selector: 'nvd3',
@@ -29,9 +31,84 @@ export class nvD3 implements OnChanges {
     private el: any;
     private chart: any;
     private svg: any;
+    private mc: any;
+
+    @Output('onTap')        onTap       = new EventEmitter();  
+
+    @Output('onDoubleTap')  onDoubleTap = new EventEmitter();
+
+    @Output('onPress')      onPress     = new EventEmitter();
+
+    @Output('onSwipe')      onSwipe     = new EventEmitter();
+
+    @Output('onRotate')     onRotate    = new EventEmitter();
+
+    @Output('onPinch')      onPinch     = new EventEmitter();
 
     constructor(private elementRef: ElementRef) {
         this.el = elementRef.nativeElement;
+        
+        this.touchEventManager();
+      
+    }
+
+    touchEventManager() {
+        const self = this;
+
+        this.mc = new Hammer.Manager(this.el, {
+            domEvents: true,
+            enable: true
+        });
+        var singleTap = new Hammer.Tap({event: 'singleTap'});
+        var doubleTap = new Hammer.Tap({ event: 'doubleTap', taps: 2});
+        var press = new Hammer.Press({event: 'press', time: 300});
+        var slide = new Hammer.Swipe({event: "swipe"});
+        var rotate = new Hammer.Rotate({event: "rotate"});
+        var pinch = new Hammer.Pinch({event: 'pinch'});
+        singleTap.requireFailure(doubleTap);
+        singleTap.requireFailure(press);
+        doubleTap.recognizeWith(singleTap);
+        doubleTap.dropRequireFailure(singleTap);
+        press.recognizeWith(singleTap);
+        press.dropRequireFailure(singleTap);
+        this.mc.add([singleTap, doubleTap, press, slide, rotate, pinch]);
+        this.mc.get("singleTap").set({enable: true});
+        this.mc.on("singleTap", function(event){
+            event.preventDefault();
+            event.srcEvent.preventDefault();
+            self.onTap.emit(event);
+        });
+        this.mc.get("doubleTap").set({enable: true});
+        this.mc.on("doubleTap", function(event){
+            event.preventDefault();
+            event.srcEvent.preventDefault();
+            self.onDoubleTap.emit(event);
+        });
+        this.mc.get("press").set({enable: true});
+        this.mc.on("press", function(event) {
+            event.preventDefault();
+            event.srcEvent.preventDefault();
+            self.onPress.emit(event);
+        });
+        this.mc.get("swipe").set({enable: true});
+        this.mc.on("swipe", (event) => {
+            //event.preventDefault();
+            //event.srcEvent.preventDefault();
+            self.onSwipe.emit(event);
+        });
+        this.mc.get("rotate").set({enable: true});
+        this.mc.on("rotate", (event) => {
+            event.preventDefault();
+            event.srcEvent.preventDefault();
+            self.onRotate.emit(event);
+        });
+        this.mc.get("pinch").set({enable: true});
+        this.mc.on("pinch", (event) => {
+            event.preventDefault();
+            event.srcEvent.preventDefault();
+            self.onPinch.emit(event);
+        });
+        
     }
 
     ngOnChanges(changes: SimpleChanges) {

@@ -48,11 +48,13 @@
     "ts-loader": "^0.8",
     "typescript": "2.9.2",
     "typings": "2.1.1",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "@types/hammerjs": "2.0.36"
   },
   "dependencies": {
     "d3": "3.5.17",
-    "nvd3": "1.8.6"
+    "nvd3": "1.8.6",
+    "hammerjs": "2.0.8"
   },
   "bugs": {
     "url": "https://github.com/OntimizeWeb/ontimize-web-ngx-nvd3/issues"
