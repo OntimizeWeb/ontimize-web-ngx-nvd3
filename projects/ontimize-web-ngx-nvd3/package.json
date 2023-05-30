@@ -19,6 +19,9 @@
     "type": "git",
     "url": "git+https://github.com/OntimizeWeb/ontimize-web-ngx-nvd3.git"
   },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "bugs": {
     "url": "https://github.com/OntimizeWeb/ontimize-web-ngx-nvd3/issues"
   },
